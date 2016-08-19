@@ -1,7 +1,4 @@
 import unittest
-import sys
-sys.path.append('./')
-sys.path.append('../')
 
 from straw.straw import Pipe
 
