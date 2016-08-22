@@ -5,19 +5,21 @@ class Pipe(object):
 
     def __or__(self, nxt):
         if not hasattr(self, 'out'):
-            self.out = self.run()
-        nxt.out = nxt.run(self.out)
+            self._out = self.run()
+        nxt._out = nxt.run(self._out)
         return nxt
 
     def __ror__(self, other):
-        self.out = self.run(other)
+        self._out = self.run(other)
         return self
-
-    def __repr__(self):
-        return self.out
-
-    def __eq__(self, other):
-        return self.__repr__() == other
 
     def run(self, pipe_in=None):
         raise NotImplementedError()
+
+    def __repr__(self):
+        if not hasattr(self, 'out'):
+            self._out = self.run()
+        return self._out
+
+    def __eq__(self, other):
+        return self.__repr__() == other
