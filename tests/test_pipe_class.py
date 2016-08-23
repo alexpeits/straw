@@ -19,7 +19,7 @@ class Join(Pipe):
         return delimiter.join(pipe_in.split())
 
 
-class TestPipes(unittest.TestCase):
+class TestPipeClass(unittest.TestCase):
 
     def test_one(self):
         out = Cat('asdf') | Upper()
