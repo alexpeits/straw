@@ -1,3 +1,16 @@
+"""
+
+straw
+~~~~~
+
+Simple, UNIX-like pipelining for Python
+
+This was developed strictly for exploring the Python interpreter,
+and should definitely not be used in production.
+
+"""
+
+
 from functools import wraps, partial
 
 
